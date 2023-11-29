@@ -1,3 +1,4 @@
+<<<<<<< HEAD
      pipeline {
         agent none
         stages {
@@ -12,3 +13,19 @@
           }
         }
       }
+=======
+     pipeline {
+        agent none
+        stages {
+         
+          stage("build & sonarqube") {
+            agent any
+            steps {
+              withSonarQubeEnv('Sona_TOKEN') {
+                sh 'mvn clean package sonar:sonar'
+              }
+            }
+          }
+        }
+      }
+>>>>>>> e44e35f538181c34f120c0a2e443f397e2cab294
